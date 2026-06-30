@@ -37,7 +37,8 @@ STEP 2 — INSTALL IT LIKE AN APP
 GOOD TO KNOW
 ------------
   - After the first open, the app works OFFLINE.
-  - Your data is saved on EACH device by itself — your phone and laptop do
-    NOT auto-sync. Use the in-app Excel export to back up or move data.
+  - Your data is saved on EACH device by itself. Signing in (cloud sync)
+    keeps devices in sync automatically. To move data manually, use the
+    Backup button (downloads a .json file) and Restore on the other device.
   - To update later: just upload a new index.html to the same repo.
     Installed copies refresh themselves automatically.

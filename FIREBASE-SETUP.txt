@@ -1,0 +1,57 @@
+BUDGET SAVING PLAN — Accounts & Cloud Sync setup (Firebase)
+===========================================================
+
+Your app now has real Sign up / Sign in / Forgot password and syncs each
+user's data to the cloud (so phone + laptop stay in sync). Three quick
+one-time settings in the Firebase console make it work on your live site.
+
+Firebase project: "Budget Saving Plan"  (console.firebase.google.com)
+
+
+1) TURN ON SIGN-IN METHODS
+   Build -> Authentication -> Get started -> "Sign-in method" tab:
+     - Enable  Email/Password.
+     - (Optional) Enable  Google  for the "Continue with Google" button.
+
+
+2) CREATE THE DATABASE + PASTE SECURITY RULES
+   Build -> Firestore Database -> Create database
+     - Start in PRODUCTION mode -> pick a location (e.g. asia-south1) -> Enable.
+   Then open the "Rules" tab, delete what's there, paste the contents of
+   firestore.rules (in this folder), and click PUBLISH.
+   (These rules make sure each user can only read/write their OWN budget.)
+
+
+3) AUTHORIZE YOUR WEBSITE DOMAIN  *** important, easy to miss ***
+   Build -> Authentication -> Settings -> "Authorized domains" -> Add domain.
+   Add the domain where you host the app, e.g.:
+       your-username.github.io
+   Without this, sign-in will fail with an "unauthorized domain" error on
+   your live site. (localhost is already allowed for testing.)
+
+
+THAT'S IT
+---------
+  - New users: tap "Create an account". Their data starts fresh.
+  - Forgot password: Firebase emails the reset link automatically — you do
+    NOT need your own SMTP/email server.
+  - "Use without an account" still works for local-only, on-device use.
+  - Free Spark plan is plenty for personal use and early users.
+
+AI FORECAST (optional — predict next month with AI)
+----------------------------------------------------
+  The Forecast tab has an "Analyse with AI" button that reads your spending
+  patterns and predicts next month's expenses/savings/marriage with reasoning.
+  To make it work on your LIVE site, add a free Google Gemini API key:
+    1. Go to  https://aistudio.google.com/apikey  -> Create API key (free).
+    2. In the app: Forecast tab -> gear icon (next to "Analyse with AI")
+       -> paste the key -> Save key.  (Stored only on your device.)
+  Without a key the button shows a reminder; in this builder's preview it uses
+  a built-in AI so you can see how it works.
+
+
+MAKING IT AN ANDROID APK (optional, no coding)
+----------------------------------------------
+  1. Host the app (GitHub Pages) — see README.txt.
+  2. Go to  https://www.pwabuilder.com  -> paste your live link -> Build ->
+     Android -> Download. You get an installable .apk / Play Store package.
