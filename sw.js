@@ -1,5 +1,5 @@
 // PKR Budget Calculator — service worker (offline support)
-const CACHE = 'pkr-budget-v2';
+const CACHE = 'pkr-budget-v3';
 const ASSETS = ['./', './index.html', './manifest.webmanifest', './icon-192.png', './icon-512.png'];
 
 self.addEventListener('install', (e) => {
